@@ -1,10 +1,14 @@
 <template>
 <div class="home">
   <section class="image-gallery">
+
+          <input v-model="findTitle" placeholder="Search" class="search">
+
+
     <div class="image" v-for="item in items" :key="item.id">
       <h2>{{item.title}}</h2>
-      <p>{{item.description}}</p>
       <img :src="item.path" />
+      <p>{{item.description}}</p>
     </div>
   </section>
 </div>
@@ -34,6 +38,14 @@
 
 .image img {
   width: 100%;
+}
+
+.search{
+  color: #edca79;
+}
+.search:hover{
+  border: 3px solid #edca79;
+  transform: rotate(5deg);
 }
 
 /* Masonry on large screens */

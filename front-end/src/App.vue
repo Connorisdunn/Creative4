@@ -3,18 +3,20 @@
   <div class="header">
     <router-link to="/">
       <div class="logo">
-        <img src="/ordinary.png">
+        <img src="/chefhat1.png" class="resize">
+        <img src="/chefhat1.png" class="resize2">
       </div>
     </router-link>
     <div class="title">
-      <h1>Museum of Ordinary Objects</h1>
+      <h1>Shared Recipes</h1>
     </div>
   </div>
   <div class="content">
     <router-view />
   </div>
   <div class="footer">
-    <router-link to="/admin">Admin</router-link>
+    <router-link to="/admin">Add Recipes/Change</router-link>
+    <p><a href="">Github link</a></p>
   </div>
 </div>
 </template>
@@ -34,10 +36,12 @@ body {
 
 /* Header */
 .header {
-  display: flex;
-  padding: 10px 100px 0px 100px;
-  background-color: #5BDEFF;
-  color: #1C454F;
+  display: float;
+  text-align: center;
+  margin: 10px 10px 10px 10px;
+  padding: 50px 50px 50px 50px;
+  background-color: #ffbd5b;
+  color: #000417;
 }
 
 .title {
@@ -55,21 +59,38 @@ body {
 
 /* Footer */
 .footer {
-  height: 50px;
-  padding: 20px 100px 0px 100px;
-  background: #e3e3e3;
+  height: 20px;
+  text-align: center;
+  margin: 5px 5px 5px 5px;
+  padding: 25px 25px 25px 25px;
+  background: #ffbd5b;
   font-size: 12px;
 }
 
 .footer a {
-  color: #000;
+  color: #000417;
+}
+
+.resize{
+  width: 25%;
+  height: 25%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.resize2{
+  width: 25%;
+  height: 25%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 h2 {
-  font-size: 14px;
+  font-size: 15px;
 }
 </style>

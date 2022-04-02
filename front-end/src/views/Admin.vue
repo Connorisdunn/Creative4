@@ -1,17 +1,17 @@
 <template>
 <div class="admin">
-    <h1>The Admin Page!</h1>
+    <h1 class="main_header">Lets add some recipes!</h1>
     <div class="heading">
-      <div class="circle">1</div>
-      <h2>Add an Item</h2>
+      <div class="circle">+</div>
+      <h2>Add a Recipe</h2>
     </div>
     <div class="add">
       <div class="form">
-        <input v-model="title" placeholder="Title">
+        <input v-model="title" placeholder="Name" class="name">
         <p></p>
         <input type="file" name="photo" @change="fileChanged">
         <p></p>
-        <textarea v-model="description" cols=50 rows=4 placeholder="Description" ></textarea> 
+        <textarea v-model="description" cols=50 rows=4 placeholder="Instructions" class ="instructions"></textarea>
         <button @click="upload">Upload</button>
       </div>
       <div class="upload" v-if="addItem">
@@ -22,27 +22,27 @@
     </div>
 
     <div class="heading">
-      <div class="circle">2</div>
-      <h2>Edit/Delete an Item</h2>
+      <div class="circle">-</div>
+      <h2>Change/Delete a Recipe</h2>
     </div>
     <div class="edit">
       <div class="form">
-        <input v-model="findTitle" placeholder="Search">
+        <input v-model="findTitle" placeholder="Search" class="search">
         <div class="suggestions" v-if="suggestions.length > 0">
           <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectItem(s)">{{s.title}}
           </div>
         </div>
       </div>
       <div class="upload" v-if="findItem">
-        <input v-model="findItem.title">
+        <input v-model="findItem.title" class="name">
         <p></p>
         <img :src="findItem.path" />
         <p></p>
-        <textarea v-model="findItem.description" cols=50 rows=4 placeholder="Description" ></textarea>
+        <textarea v-model="findItem.description" cols=50 rows=4 placeholder="Instructions" class="instructions"></textarea>
       </div>
       <div class="actions" v-if="findItem">
         <button @click="deleteItem(findItem)">Delete</button>
-        <button @click="editItem(findItem)">Edit</button>
+        <button @click="editItem(findItem)">Change</button>
       </div>
     </div>
 </div>
@@ -71,12 +71,11 @@
 }
 
 .circle {
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
+  width: 23px;
+  height: 23px;
   padding: 8px;
-  background: #333;
-  color: #fff;
+  background: #ffbd5b;
+  color: #000417;
   text-align: center
 }
 
@@ -113,8 +112,37 @@ button {
 }
 
 .suggestion:hover {
-  background-color: #5BDEFF;
+  background-color: #edca79;
   color: #fff;
+}
+.main_header{
+  text-align: center;
+  text-decoration: underline;
+}
+
+
+.name{
+  color: #edca79;
+}
+.name:hover{
+  border: 3px solid #edca79;
+  transform: rotate(5deg);
+}
+
+.instructions{
+  color: #edca79;
+}
+.instructions:hover{
+  border: 3px solid #edca79;
+  transform: rotate(5deg);
+}
+
+.search{
+  color: #edca79;
+}
+.search:hover{
+  border: 3px solid #edca79;
+  transform: rotate(5deg);
 }
 </style>
 
@@ -128,7 +156,7 @@ export default {
       title: "",
       file: null,
       addItem: null,
-      items: [], 
+      items: [],
       findTitle: "",
       findItem: null,
       description: "",
