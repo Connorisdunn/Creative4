@@ -3,7 +3,7 @@
   <section class="image-gallery">
 
           <input v-model="findTitle" placeholder="Search" class="search">
-
+	<p><a href="http://creative4.connorisdunn.xyz/admin">Add Recipes/Change</a></p>
 
     <div class="image" v-for="item in items" :key="item.id">
       <h2>{{item.title}}</h2>
@@ -93,7 +93,7 @@ export default {
         this.items = response.data;
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
   }

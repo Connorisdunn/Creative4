@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({
 // Configure multer so that it will upload to '../front-end/public/images'
 const multer = require('multer')
 const upload = multer({
-  dest: '../front-end/public/images/',
+  dest: '/var/www/creative4.connorisdunn.xyz/images/',
   limits: {
     fileSize: 10000000
   }
@@ -21,7 +21,7 @@ const upload = multer({
 const mongoose = require('mongoose');
 
 // connect to the database
-mongoose.connect('mongodb://127.0.0.1:27017/museum', {
+mongoose.connect('mongodb://127.0.0.1:27017/creative4', {
   useNewUrlParser: true
 });
 
@@ -60,7 +60,6 @@ app.post('/api/items', async (req, res) => {
     await item.save();
     res.send(item);
   } catch (error) {
-    console.log(error);
     res.sendStatus(500);
   }
 });
@@ -72,7 +71,6 @@ app.delete('/api/items/:id', async (req, res) => {
     });
     res.sendStatus(200);
   } catch (error) {
-    console.log(error);
     res.sendStatus(500);
   }
 });
@@ -87,7 +85,6 @@ app.put('/api/items/:id', async (req, res) => {
     await item.save();
     res.sendStatus(200);
   } catch (error) {
-    console.log(error);
     res.sendStatus(500);
   }
 });
@@ -98,9 +95,8 @@ app.get('/api/items', async (req, res) => {
     let items = await Item.find();
     res.send(items);
   } catch (error) {
-    console.log(error);
     res.sendStatus(500);
   }
 });
 
-app.listen(3000, () => console.log('Server listening on port 3000!'));
+app.listen(3002, () => console.log('Server listening on port 3002!'));

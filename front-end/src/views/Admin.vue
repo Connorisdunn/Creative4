@@ -187,8 +187,8 @@ export default {
         this.getItems();
         return true;
       } catch (error) {
-        console.log(error);
-      }
+	//console.log();
+	}
     },
     async editItem(item) {
       try {
@@ -200,8 +200,8 @@ export default {
         this.getItems();
         return true;
       } catch (error) {
-        console.log(error);
-      }
+	//console.log();
+       }
     },
 async getItems() {
   try {
@@ -209,7 +209,7 @@ async getItems() {
     this.items = response.data;
     return true;
   } catch (error) {
-    console.log(error);
+	//console.log();    
   }
 },
     async upload() {
@@ -224,7 +224,7 @@ async getItems() {
         });
         this.addItem = r2.data;
       } catch (error) {
-        console.log(error);
+	//console.log();       
       }
     },
   }

@@ -16,7 +16,8 @@
   </div>
   <div class="footer">
     <router-link to="/admin">Add Recipes/Change</router-link>
-    <p><a href="">Github link</a></p>
+    <p><a href="https://github.com/Connorisdunn/Creative4">Github</a></p>
+	<p>https://github.com/Connorisdunn/Creative4</p>
   </div>
 </div>
 </template>
